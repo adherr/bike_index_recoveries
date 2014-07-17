@@ -1,0 +1,2 @@
+module RecoveriesHelper
+end

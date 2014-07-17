@@ -9,6 +9,6 @@ When(/^the Bike Index tells the recovery app about the recovery$/) do
 end
 
 Then(/^that bike should show up on the recoveries app/) do
-  visit(root)
-  expect(page).to have_content('2014 Allegro Comp Disc')
+  visit(root_url)
+  expect(page).to have_content('2014 Jamis Allegro Comp Disc')
 end

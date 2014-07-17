@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-sass'
-gem 'haml'
+gem 'haml-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
@@ -63,12 +63,15 @@ group :development do
   gem 'foreman'
 end
 
+group :development, :test do
+  gem 'factory_girl_rails'
+end
+
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'rspec'
-  gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'webmock'
 end

@@ -1,0 +1,40 @@
+.container-fluid
+  .row
+    .col-md-12
+      %h1
+        Recoveries!
+
+  %hr
+  - @bikes.each do |bike|
+    .row
+      .bike
+        %h3
+          #{bike.year} #{bike.manufacturer} #{bike.model}
+        .col-md-4
+          %dl.dl-horizontal
+            %dt
+              Serial:
+            %dd
+              #{bike.serial}
+            %dt
+              Color:
+            %dd
+              #{bike.color}
+            %dt
+              Description:
+            %dd
+              #{bike.description}
+        .col-md-4
+          %dl.dl-horizontal
+            %dt
+              Stolen from:
+            %dd
+              #{bike.stolen_location}
+            %dt
+              Date stolen:
+            %dd
+              #{bike.date_stolen}
+            %dt
+              Date recovered
+            %dd
+              #{bike.date_recovered}
