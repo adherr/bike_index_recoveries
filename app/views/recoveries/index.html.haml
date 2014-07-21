@@ -9,7 +9,7 @@
     .row
       .bike
         %h3
-          #{bike.year} #{bike.manufacturer} #{bike.model}
+          = link_to "#{bike.year} #{bike.manufacturer} #{bike.model}", bike.bi_url
         .col-md-4
           %dl.dl-horizontal
             %dt
@@ -33,8 +33,15 @@
             %dt
               Date stolen:
             %dd
-              #{bike.date_stolen}
+              #{bike.date_stolen.strftime("%m/%d/%Y")}
             %dt
-              Date recovered
+              Date recovered:
             %dd
-              #{bike.date_recovered}
+              #{bike.date_recovered.strftime("%m/%d/%Y")}
+            - if bike.recovery_story
+              %dt
+                Recovery Story:
+              %dd
+                #{bike.recovery_story}
+        .col-md-2
+          = link_to image_tag(bike.thumb, alt: "#{bike.year} #{bike.manufacturer} #{bike.model}"), bike.bi_url

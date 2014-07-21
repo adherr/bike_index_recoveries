@@ -11,26 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717172407) do
+ActiveRecord::Schema.define(version: 20140721124019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bikes", force: true do |t|
-    t.integer  "bi_id"
-    t.string   "bi_url"
+    t.integer  "bi_id",            null: false
+    t.string   "bi_url",           null: false
+    t.string   "bi_api_url",       null: false
     t.integer  "year"
     t.string   "manufacturer"
     t.string   "model"
     t.string   "serial"
     t.string   "color"
     t.text     "description"
+    t.integer  "stolen_record_id", null: false
     t.datetime "date_stolen"
     t.string   "stolen_location"
     t.datetime "date_recovered"
     t.text     "recovery_story"
+    t.string   "tweet_text"
+    t.string   "thumb"
+    t.string   "photo"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tweets", force: true do |t|
+    t.integer  "twitter_account_id"
+    t.integer  "twitter_tweet_id",   limit: 8
+    t.integer  "bike_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tweets", ["twitter_account_id"], name: "index_tweets_on_twitter_account_id", using: :btree
+
+  create_table "twitter_accounts", force: true do |t|
+    t.string   "screen_name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "consumer_key"
+    t.string   "consumer_secret"
+    t.string   "user_token"
+    t.string   "user_secret"
+    t.string   "address"
+    t.boolean  "default",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "twitter_accounts", ["latitude", "longitude"], name: "index_twitter_accounts_on_latitude_and_longitude", using: :btree
 
 end

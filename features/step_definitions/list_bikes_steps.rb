@@ -4,5 +4,5 @@ end
 
 Then(/^they see a list of recovered bikes$/) do
   visit(root_path)
-  expect(page).to have_content('Here are the recoveries')
+  expect(page).to have_content('Recoveries')
 end

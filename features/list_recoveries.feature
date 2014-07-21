@@ -1,4 +1,3 @@
-@wip
 Feature: A list of recovered bikes
 In order to publicize the Bike Index's recovery success
 The Bike Index wants a list of recovered bikes. The recovery app

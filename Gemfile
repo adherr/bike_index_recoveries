@@ -74,4 +74,5 @@ group :test do
   gem 'rspec'
   gem 'shoulda-matchers'
   gem 'webmock'
+  gem 'vcr'
 end

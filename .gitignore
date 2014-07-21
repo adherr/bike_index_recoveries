@@ -23,3 +23,6 @@ GPATH
 .rvmrc
 .ruby-gemset
 .ruby-version
+
+# secret seeds
+/db/seeds/twitter_accounts.rb
