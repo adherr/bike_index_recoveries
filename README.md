@@ -2,12 +2,15 @@
 
 Will interact with the BikeIndex.org API in order to recieve information about and display lists of bikes recovered with the help of BikeIndex.org (and StolenBikeRegistry.com).
 
-## Facebook setup Is kind of a pain in the ass. Everything you need to
-know comes from here:
+## Facebook setup
+
+Is kind of a pain in the ass. Everything you need to know comes from
+here:
 [https://developers.facebook.com/docs/facebook-login/access-tokens/](https://developers.facebook.com/docs/facebook-login/access-tokens/). Namely
 that you need a page-token to update a page, and that in order to get
 a page token, you have to get a user-token and then ask for
 me/accounts. I'll try to lay out the process I used here.
+
 1.  Sign up the application at [https://developers.facebook.com/](https://developers.facebook.com/)
 2.  Open a new tab pointed to the Graph Explorer tool
    [https://developers.facebook.com/tools/explorer](https://developers.facebook.com/tools/explorer)
