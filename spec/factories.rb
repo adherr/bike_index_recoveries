@@ -14,7 +14,7 @@ FactoryGirl.define do
     description "Triple-butted 6061 aluminum with hydro-formed top and down tube, taper gauge \"S\" bend stays, replaceable derailleur hanger, disc brake mounts, eyeleted dropouts and seatstay rack mounts"
     photo "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/14_allegrocompdisc_bk.jpg"
     thumb "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/small_14_allegrocompdisc_bk.jpg"
-    stolen_record_id 1359
+    stolen_record_id 1
     date_stolen Date.parse("2014-05-20T01:00:00-05:00")
     stolen_location "Chicago, IL"
     latitude 41.87810
@@ -36,7 +36,7 @@ FactoryGirl.define do
     description "Triple-butted 6061 aluminum with hydro-formed top and down tube, taper gauge \"S\" bend stays, replaceable derailleur hanger, disc brake mounts, eyeleted dropouts and seatstay rack mounts"
     photo "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/14_allegrocompdisc_bk.jpg"
     thumb "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/small_14_allegrocompdisc_bk.jpg"
-    stolen_record_id 1358
+    stolen_record_id 1
     date_stolen Date.parse("2014-05-20T01:00:00-05:00")
     stolen_location "Chicago, IL"
     latitude 41.87810

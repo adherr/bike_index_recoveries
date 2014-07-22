@@ -47,6 +47,7 @@ gem 'will_paginate-bootstrap'
 gem 'twitter'
 gem 'geocoder'
 gem 'httparty'
+gem 'koala'
 
 group :production do
   'rails_12factor'
