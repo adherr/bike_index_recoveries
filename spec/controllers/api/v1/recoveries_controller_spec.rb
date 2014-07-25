@@ -21,7 +21,7 @@ RSpec.describe Api::V1::RecoveriesController, type: :controller do
     end
     context "with proper key" do
       it "should create a new Bike in the db and fill it with the correct info" do
-        VCR.use_cassette('bikeindex', :record => :new_episodes) do
+        VCR.use_cassette('bikeindex', :record => :none) do
           post_params = {key: ENV['INCOMING_REQUEST_KEY'], api_url: "https://bikeindex.org/api/v1/bikes/3414", theft_information: {stolen_record_id: 1, date_stolen: "2014-05-20T01:00:00-05:00", location: "Chicago, IL"}, recovery_information: {date_recovered: "2014-01-29T11:05:17-06:00", recovery_story: nil, tweet: nil}}
           expect(TwitterTweeterIntegration).to_not receive(:new)
           expect { post :create, post_params, format: :json }.to change{Bike.count}.by(1)
@@ -33,7 +33,7 @@ RSpec.describe Api::V1::RecoveriesController, type: :controller do
         end
       end
       it "should share on facebook and twitter if there is a story and tweet" do
-        VCR.use_cassette('bikeindex', :record => :new_episodes) do
+        VCR.use_cassette('bikeindex', :record => :none) do
           post_params = {key: ENV['INCOMING_REQUEST_KEY'], api_url: "https://bikeindex.org/api/v1/bikes/3414", theft_information: {stolen_record_id: 1, date_stolen: "2014-05-20T01:00:00-05:00", location: "Chicago, IL"}, recovery_information: {date_recovered: "2014-01-29T11:05:17-06:00", recovery_story: "I Got this bike back because the bike index is awesome! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non", tweet: "I Got this bike back because the bike index is awesome!"}}
           expect(TwitterTweeterIntegration).to receive(:new).with(an_instance_of(Bike))
           expect(@tti).to receive(:create_tweet)
@@ -47,7 +47,7 @@ RSpec.describe Api::V1::RecoveriesController, type: :controller do
 
   describe 'bike_index_response' do
     it "should get the bike's hash from the BI api" do
-      VCR.use_cassette('bikeindex', :record => :new_episodes) do
+      VCR.use_cassette('bikeindex', :record => :none) do
         bike_hash = Api::V1::RecoveriesController.new.bike_index_response("https://bikeindex.org/api/v1/bikes/3414")
         expect(bike_hash[:serial]).to eq("stolen_serial_number")
         expect(bike_hash[:front_tire_narrow]).to be true

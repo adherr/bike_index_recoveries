@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "FacebookPosterIntegration" do
   before(:all) do
-    VCR.use_cassette('bikeindex', record: :new_episodes) do
+    VCR.use_cassette('bikeindex', record: :none) do
       @chi_bike = Bike.find_by(stolen_record_id: 1) || FactoryGirl.create(:bike_stolen_test_story)
     end
   end

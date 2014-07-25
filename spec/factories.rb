@@ -1,5 +1,10 @@
 FactoryGirl.define do
+
   factory :bike do
+    sequence(:bi_id)
+    sequence(:bi_url) { |n| "https://bikeindex.org/bikes/#{n}" }
+    sequence(:bi_api_url) { |n| "https://bikeindex.org/api/v1/bikes/#{n}" }
+    sequence(:stolen_record_id)
   end
 
   factory :bike_stolen_test, class: Bike do
@@ -12,7 +17,6 @@ FactoryGirl.define do
     serial "stolen_serial_number"
     color "Blue"
     description "Triple-butted 6061 aluminum with hydro-formed top and down tube, taper gauge \"S\" bend stays, replaceable derailleur hanger, disc brake mounts, eyeleted dropouts and seatstay rack mounts"
-    photo "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/14_allegrocompdisc_bk.jpg"
     thumb "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/small_14_allegrocompdisc_bk.jpg"
     stolen_record_id 1
     date_stolen Date.parse("2014-05-20T01:00:00-05:00")
@@ -34,7 +38,6 @@ FactoryGirl.define do
     serial "stolen_serial_number"
     color "Blue"
     description "Triple-butted 6061 aluminum with hydro-formed top and down tube, taper gauge \"S\" bend stays, replaceable derailleur hanger, disc brake mounts, eyeleted dropouts and seatstay rack mounts"
-    photo "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/14_allegrocompdisc_bk.jpg"
     thumb "https://bikebook.s3.amazonaws.com/uploads/Fr/9979/small_14_allegrocompdisc_bk.jpg"
     stolen_record_id 1
     date_stolen Date.parse("2014-05-20T01:00:00-05:00")

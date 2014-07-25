@@ -1,47 +1,57 @@
-.container-fluid
-  .row
-    .col-md-12
-      %h1
-        Recoveries!
+%section.content
+  .receptacle.bike-search-page
+    .inner-recep
+      .paginate-container
+        = will_paginate @bikes, param_name: :bikes_page, next_label: "Next", previous_label: "Previous"
+      %ul.bike-boxes
+        - @bikes.each do |bike|
+          %li
+            = link_to image_tag(bike.thumb, alt: "#{bike.year} #{bike.manufacturer} #{bike.model}"), bike.bi_url, html_options = {class: "blist-image-holder"}
+            %h3
+              = link_to "#{bike.year} #{bike.manufacturer} #{bike.model}", bike.bi_url
+            .blist-primary-group
+              - if bike.recovery_story
+                .recovery-story
+                  = bike.recovery_story
+              .dl-holder
+                %table.dl-horizontal
+                  %tr
+                    %th
+                      Serial:
+                    %td.serial-text
+                      #{bike.serial}
+                  %tr
+                    %th
+                      Color:
+                    %td
+                      #{bike.color}
+                  -# %dt
+                    Description:
+                  -# %dd
+                    #{bike.description}
 
-  %hr
-  - @bikes.each do |bike|
-    .row
-      .bike
-        %h3
-          = link_to "#{bike.year} #{bike.manufacturer} #{bike.model}", bike.bi_url
-        .col-md-4
-          %dl.dl-horizontal
-            %dt
-              Serial:
-            %dd
-              #{bike.serial}
-            %dt
-              Color:
-            %dd
-              #{bike.color}
-            %dt
-              Description:
-            %dd
-              #{bike.description}
-        .col-md-4
-          %dl.dl-horizontal
-            %dt
-              Stolen from:
-            %dd
-              #{bike.stolen_location}
-            %dt
-              Date stolen:
-            %dd
-              #{bike.date_stolen.strftime("%m/%d/%Y")}
-            %dt
-              Date recovered:
-            %dd
-              #{bike.date_recovered.strftime("%m/%d/%Y")}
-            - if bike.recovery_story
-              %dt
-                Recovery Story:
-              %dd
-                #{bike.recovery_story}
-        .col-md-2
-          = link_to image_tag(bike.thumb, alt: "#{bike.year} #{bike.manufacturer} #{bike.model}"), bike.bi_url
+                %table.dl-horizontal.stolen_info
+                  %tr
+                    %th
+                      Stolen from:
+                    %td
+                      #{bike.stolen_location}
+                  %tr
+                    %th
+                      Date stolen:
+                    %td
+                      #{bike.date_stolen.strftime("%m/%d/%Y")}
+                  %tr
+                    %th
+                      Date recovered:
+                    %td
+                      #{bike.date_recovered.strftime("%m/%d/%Y")}
+                  -#- if bike.recovery_story
+                    %dt
+                      Recovery Story:
+                    %dd
+                      #{bike.recovery_story}
+              -#.col-md-2
+
+      .paginate-container-bottom
+        = will_paginate @bikes, param_name: :bikes_page, next_label: "Next", previous_label: "Previous"

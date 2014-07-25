@@ -1,0 +1,175 @@
+html {
+  background: white;
+}
+
+.serial-text {
+  font-family: Courier;
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+//________________________
+//
+// Header styles
+//
+//________________________
+
+$lightBIBlue: #3498db;
+$darkBIBlue: #2c3e50;
+
+$skinnyHeight: 15%;
+$fatHeight: 25%;
+
+
+.logo-header {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  @include clearfix;
+  a {
+    position: absolute;
+    display: block;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    img {
+      display: block;
+      height: 100%;
+    }
+  }
+  .logo-design-wrap {
+    width: 25%;
+    height: 200px;
+    float: left;
+    position: relative;
+
+    span {
+      position: relative;
+      display: block;
+      width: 98%;
+      z-index: 1;
+    }
+    .spacing-span {
+      height: 5%;
+      &:first-of-type {
+        height: 2.5%
+      }
+    }
+    .top-stripe {
+      background-color: $lightBIBlue;
+    }
+    .bottom-stripe {
+      background-color: $darkBIBlue;
+    }
+    .skinny-stripe {
+      height: $skinnyHeight;
+    }
+    .fat-stripe {
+      height: $fatHeight;
+    }
+    
+  }
+  h1 {
+    width: 73%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo-header {
+    .logo-design-wrap {
+      width: 80%;
+    }
+    h1 {
+      position: relative;
+      float: left;
+      width: 100%;
+    }
+  }
+}
+
+//________________________
+//
+// Bike List
+//
+//________________________
+
+.bike-boxes {
+  list-style-type: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  li {
+    @include clearfix;
+    position: relative;
+    width: 100%;
+    padding: 10px 23% 10px 1%;
+    margin: 0 0 5px;
+    &:hover { background-color: $tableBackgroundAccent; }
+  }
+}
+
+.stolen_info, .stolen_info dt {
+  color: $stolenColor;
+}
+
+.blist-image-holder {
+  width: 20%;
+  height: 96%;
+  position: absolute;
+  right: 1%; top: 2%;
+  padding: 10px 0;
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+  }
+  &:visited { border: none; }
+  span {
+    position: absolute;
+    top: 0; left: 0;
+    color: #999;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 960px) {
+  .blist-image-holder img {
+    max-height: 190px;
+  }
+}
+
+@media (max-width: 550px) {
+  .bike-boxes {
+    .blist-image-holder { 
+      //top: 50%;
+      //margin-top: -40px;
+      //padding-top: 0;
+      //padding-bottom: 0;
+      // left: 0;
+      img { width: 80px; }
+    }
+    .blist-info-group { display: none; }
+  }
+}
+
+@media (min-width: 768px) {
+  .blist-primary-group dl-horizontal {
+    width: 50%;
+  }
+  .bike-boxes {
+    li {
+      min-height: 200px;
+      h3 { margin-bottom: 1em; }
+    }
+  }
+}

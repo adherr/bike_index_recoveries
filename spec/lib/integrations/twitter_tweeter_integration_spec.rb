@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe TwitterTweeterIntegration do
   before(:all) do
-    VCR.use_cassette('geocoding', record: :new_episodes) do
+    VCR.use_cassette('geocoding', record: :none) do
       Rails.application.load_seed if TwitterAccount.all.empty?
       @chi_bike = Bike.find_by(stolen_record_id: 1) || FactoryGirl.create(:bike_stolen_test_story)
     end

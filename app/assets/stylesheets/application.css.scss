@@ -1,0 +1,14 @@
+// Import Base styles
+@import "application_styles/colors";
+@import "application_styles/vars";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "application_styles/global_styles";
+
+// Import App styles
+@import "application_styles/utility_classes";
+@import "application_styles/image_bike_styles";
+@import "application_styles/pagination_styles";
+
+// Import Page styles
+@import "page_styles/show_bike_styles";

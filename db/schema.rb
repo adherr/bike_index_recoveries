@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721123245) do
+ActiveRecord::Schema.define(version: 20140725123809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20140721123245) do
     t.text     "recovery_story"
     t.string   "tweet_text"
     t.string   "thumb"
-    t.string   "photo"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "has_story"
   end
 
   create_table "twitter_accounts", force: true do |t|

@@ -6,4 +6,6 @@ class Bike < ActiveRecord::Base
 
   geocoded_by :stolen_location
   after_validation :geocode
+
+  default_scope { order('has_story NULLS LAST, date_recovered DESC') }
 end

@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title
+      Bike Index Recoveries
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}/
+    = stylesheet_link_tag "application", media: "all", 'data-turbolinks-track' => true
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+  %body
+    %header.logo-header
+      .logo-design-wrap
+        %span.spacing-span
+        %span.top-stripe.skinny-stripe
+        %span.spacing-span
+        %span.top-stripe.fat-stripe
+        %span.spacing-span
+        %span.bottom-stripe.fat-stripe
+        %span.spacing-span
+        %span.bottom-stripe.skinny-stripe
+        = link_to image_tag("/assets/bi_logo.svg", alt: "Bike Index logo"), "https://bikeindex.org"
+      %h1
+        Bike Index recoveries
+    = yield

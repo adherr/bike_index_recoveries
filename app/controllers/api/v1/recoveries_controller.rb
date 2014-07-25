@@ -24,7 +24,6 @@ module Api
           b.recovery_story = params[:recovery_information][:recovery_story]
           b.tweet_text = params[:recovery_information][:tweet]
           b.thumb = bi_response[:thumb]
-          b.photo = bi_response[:photo]
         end
         share(bike) if bike.recovery_story
         render json: {recovery_id: bike.id}
