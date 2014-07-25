@@ -52,7 +52,8 @@ gem 'httparty'
 gem 'koala'
 
 group :production do
-  'rails_12factor'
+  gem 'rails_12factor'
+  gem 'thin'
 end
 
 group :development do
