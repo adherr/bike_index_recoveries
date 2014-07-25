@@ -26,13 +26,13 @@ module Api
           b.thumb = bi_response[:thumb]
           b.photo = bi_response[:photo]
         end
-        share(bike) if bike.recovery_story
+        share(bike) if bike.recovery_story || bike.tweet_text
         render json: {recovery_id: bike.id}
       end
 
       def share(bike)
         TwitterTweeterIntegration.new(bike).create_tweet if bike.tweet_text
-        FacebookPosterIntegration.new(bike).create_post
+        FacebookPosterIntegration.new(bike).create_post if bike.recovery_story
       end
 
       def bike_index_response(bike_index_api_url)

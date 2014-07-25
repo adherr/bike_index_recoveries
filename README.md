@@ -2,6 +2,29 @@
 
 Will interact with the BikeIndex.org API in order to recieve information about and display lists of bikes recovered with the help of BikeIndex.org (and StolenBikeRegistry.com).
 
+## API documentation
+
+Currently the only endpoint is the create new recovery endpoint. Only the BikeIndex will be allowed to do this. I expect JSON with the following (in proper JSON format, with quoted keys and values):
+
+    {
+        key: ,
+        api_url: ,
+        theft_information: {
+            stolen_record_id: ,
+            date_stolen: ,
+            location:
+        },
+        recovery_information: {
+            date_recovered: ,
+            recovery_story: ,
+            tweet:
+        }
+    }
+
+Everything is required except `recovery_story` and `tweet`, which can be sent with null or omitted entirely. `recovery_story` can be as long as you want. `tweet` must be 94 characters or fewer, but the URL doesn't count toward this number (so you might as well use the long form BikeIndex.org). This number comes from 140 tweet length - 23 for the wrapped URL - 23 for the photo. Twitter can change these sizes, but I don't think they do very often.
+
+When you hit the API with a bike that has a story it will be posted to Facebook, and if it has a tweet it will be tweeted.
+
 ## Facebook setup
 
 Is kind of a pain in the ass. Everything you need to know comes from
@@ -37,8 +60,8 @@ me/accounts. I'll try to lay out the process I used here.
         client_secret={app-secret}&
         fb_exchange_token={short-lived-token}
 
-    where `app-id` and `app-secret` are on the page you still have
-    open from step 1, and short-lived-token is what you got in step 6.
+    where `{app-id}` and `{app-secret}` are on the page you still have
+    open from step 1, and `{short-lived-token}` is what you got in step 6.
 9.  The `access_token`  you receive in the JSON response  is your long
     term  user-token (as  you can  see from  its 60  day expiry time,
     listed  in seconds).  Copy  this `access_token`  into the  `Access
@@ -53,7 +76,7 @@ me/accounts. I'll try to lay out the process I used here.
         input_token={token-to-inspect}
         &access_token={app-token-or-admin-token}
 
-    where `token-to-inspect` is that new page-token and `admin-token`
+    where `{token-to-inspect}` is that new page-token and `{admin-token}`
     is a viable user-token for an admin of the app (you, presumably,
     because you just created the app) (use your access token from step
     6 or 9 here). Don't worry about `app-token`. This should give you
