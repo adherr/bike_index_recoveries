@@ -29,19 +29,19 @@ $headerFont: 'Open Sans', sans-serif;
 
 @font-face{
   font-family:'Klinic';
-  src:url("/assets/KlinicSlabBook.otf");
+  src:asset-url("KlinicSlabBook.otf");
   font-weight: normal;
   font-style: normal;
 }
 @font-face{
   font-family:'Klinic';
-  src:url("/assets/KlinicSlabBookIt.otf");
+  src:asset-url("KlinicSlabBookIt.otf");
   font-weight: normal;
   font-style: italic;
 }
 @font-face{
   font-family:'Klinic';
-  src:url("/assets/KlinicSlabMedium.otf");
+  src:asset-url("KlinicSlabMedium.otf");
   font-weight: bold;
   font-style: normal;
 }
