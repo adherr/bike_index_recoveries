@@ -12,7 +12,8 @@ Currently the only endpoint is the create new recovery endpoint. Only the BikeIn
         theft_information: {
             stolen_record_id: ,
             date_stolen: ,
-            location:
+            latitude: ,
+            longitude:
         },
         recovery_information: {
             date_recovered: ,

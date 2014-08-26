@@ -19,9 +19,11 @@ module Api
           b.description = bi_response[:description]
           b.stolen_record_id = params[:theft_information][:stolen_record_id]
           b.date_stolen = Date.parse(params[:theft_information][:date_stolen])
-          b.stolen_location = params[:theft_information][:location]
+          b.latitude = params[:theft_information][:latitude]
+          b.longitude = params[:theft_information][:longitude]
           b.date_recovered = Date.parse(params[:recovery_information][:date_recovered])
           b.recovery_story = params[:recovery_information][:recovery_story]
+          b.has_story = true if b.recovery_story
           b.tweet_text = params[:recovery_information][:tweet]
           b.thumb = bi_response[:thumb]
           b.photo = bi_response[:photo]

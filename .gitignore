@@ -28,3 +28,6 @@ GPATH
 /db/seeds/twitter_accounts.rb
 # VCR cassettes, because it's a big hassle to filter out all the sensitive data
 /spec/cassettes
+
+# logos and such
+*.png
