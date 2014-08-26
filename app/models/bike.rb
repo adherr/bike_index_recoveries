@@ -13,5 +13,5 @@ class Bike < ActiveRecord::Base
   end
   after_validation :reverse_geocode
 
-  default_scope { order('has_story NULLS LAST, date_recovered DESC') }
+  default_scope { order('has_story is not null DESC, date_recovered DESC') }
 end
